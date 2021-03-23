@@ -14,8 +14,7 @@ The Windows installer is [here](...).
 
 ## Disclaimers
 * This is a starter example and intended to demonstrate to app providers a sample of how to approach an implementation. There are potentially other ways to approach it and alternatives could be considered. 
-* This is an open source project and all are encouraged to contribute. Please do not take any examples here as ways to write you production code, this is simply a demonstration of some of our API's and 
-* not a recommended approach to using them in a production environment.
+* This is an open source project and all are encouraged to contribute. Please do not take any examples here as ways to write you production code, this is simply a demonstration of some of our API's and not a recommended approach to using them in a production environment.
 * Its possible that the repo is not actively maintained.
 
 ## Support
