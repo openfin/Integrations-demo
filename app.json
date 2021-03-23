@@ -19,6 +19,9 @@
                 "saveWindowState": false,
                 "backgroundThrottling": true,
                 "layout": {
+                    "settings": {
+                        "hasHeaders": false
+                    },
                     "content": [
                         {
                             "type": "row",
