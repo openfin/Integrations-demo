@@ -1,0 +1,18 @@
+{
+  "name": "integrations-demo",
+  "version": "1.0.0",
+  "description": "Demo some of our new integrations.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "OpenFin",
+  "license": "ISC",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "hadouken-js-adapter": "^17.54.32",
+    "http-server": "^0.12.3",
+    "openfin-adapter": "^18.56.37",
+    "serve-static": "^1.14.1"
+  }
+}

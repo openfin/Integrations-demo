@@ -1,0 +1,42 @@
+{
+    "runtime": {
+        "arguments": "--v=1 --inspect",
+        "version": "18.87.57.35"
+    },
+    "shortcut": {
+        "company": "OpenFin",
+        "description": "Platform app seed local",
+        "icon": "https://openfin.github.io/golden-prototype/favicon.ico",
+        "name": "Platform app seed local"
+    },
+    "platform": {
+        "uuid": "app-1616522930415-2625",
+        "autoShow": false
+    },
+    "snapshot": {
+        "windows": [
+            {
+                "saveWindowState": false,
+                "backgroundThrottling": true,
+                "layout": {
+                    "content": [
+                        {
+                            "type": "row",
+                            "id": "no-drop-target",
+                            "content": [
+                                {
+                                    "type": "component",
+                                    "componentName": "view",
+                                    "componentState": {
+                                        "name": "view-1616522930415-2600",
+                                        "url": "http://localhost:5555/index.html"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
