@@ -10,7 +10,7 @@
         "name": "Platform app seed local"
     },
     "platform": {
-        "uuid": "app-1616522930415-2625",
+        "uuid": "IntegrationsDemo",
         "autoShow": false
     },
     "snapshot": {
@@ -31,7 +31,7 @@
                                     "type": "component",
                                     "componentName": "view",
                                     "componentState": {
-                                        "name": "view-1616522930415-2600",
+                                        "name": "SecuritiesView",
                                         "url": "http://localhost:5555/index.html"
                                     }
                                 }
