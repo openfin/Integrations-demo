@@ -1,31 +1,54 @@
+import { importExcel } from './data-loader.js'
+
 const columnDefs = [
-    { field: "security" },
-    { field: "price" }
+    { field: "Ticker" },
+    { field: "Coupon" },
+    { field: "CUSIP" },
+    { field: "Maturity" },
+    { field: "M" },
+    { field: "S&P" },
+    { field: "F" },
+    { field: "Amt Out" },
+    { field: "BM Desc" },
+    { field: "Issue Date" },
 ];
 
-// specify the data
-const rowData = [
-    { security: "IBM US Equity", price: 35000 },
-    { security: "VOD LN Equity", price: 32000 },
-];
+const supportedBbgCommands = ["YAS", "DES", "YASQ", "PSU", "PSU1", "QMGR", "HDS", "COV", "ATS"];
+const commandActions = {};
+function setupCommandActions() {
+    supportedBbgCommands.forEach(command => {
+        commandActions[command] = {
+            name: command,
+            action: function () {
+                window.alert('Alerting about ' + command);
+            }
+        }
+    });
+}
+function getContextMenuItems(params) {
+    var result = [...Object.values(commandActions)];
 
-
+    return result;
+}
 
 // let the grid know which columns and what data to use
 const gridOptions = {
     columnDefs: columnDefs,
-    rowData: rowData,
     defaultColDef: {
-        flex: 1,
-        minWidth: 100,
         resizable: true,
+        minWidth: 80,
+        flex: 1
     },
+    rowData: [],
     enableRangeSelection: true,
-    allowContextMenuWithControlKey: true
+    allowContextMenuWithControlKey: true,
+    getContextMenuItems: getContextMenuItems,
 };
 
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', () => {
+    setupCommandActions();
     const gridDiv = document.querySelector('#securitiesGrid');
     new agGrid.Grid(gridDiv, gridOptions);
+    importExcel(gridOptions);
 });

@@ -11,13 +11,20 @@
     },
     "platform": {
         "uuid": "IntegrationsDemo",
-        "autoShow": false
+        "autoShow": false,
+        "defaultViewOptions": {
+            "contextMenu": false
+        },
+        "defaultWindowOptions": {
+            "contextMenu": false
+        }
     },
     "snapshot": {
         "windows": [
             {
                 "saveWindowState": false,
                 "backgroundThrottling": true,
+                "contextMenu": false,
                 "layout": {
                     "settings": {
                         "hasHeaders": false
@@ -30,6 +37,7 @@
                                 {
                                     "type": "component",
                                     "componentName": "view",
+                                    "contextMenu": false,
                                     "componentState": {
                                         "name": "SecuritiesView",
                                         "url": "http://localhost:5555/index.html"
