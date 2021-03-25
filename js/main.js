@@ -1,6 +1,8 @@
 import { importExcel } from './data-loader.js'
 import { setupCommandActions } from './commands.js'
 
+let shouldSyncWithBloomberg = false;
+
 const columnDefs = [
     { field: "Ticker" },
     { field: "Coupon" },
@@ -20,6 +22,13 @@ function getContextMenuItems(params) {
     return [...Object.values(setupCommandActions())];
 }
 
+function onSelectionChanged() {
+    var selectedRows = gridOptions.api.getSelectedRows();
+    if (selectedRows && selectedRows.length > 0 && shouldSyncWithBloomberg) {
+        alert("Row selected with CUSIP" + selectedRows[0].CUSIP);
+    }
+}
+
 // let the grid know which columns and what data to use
 const gridOptions = {
     columnDefs: columnDefs,
@@ -32,10 +41,16 @@ const gridOptions = {
     enableRangeSelection: true,
     allowContextMenuWithControlKey: true,
     getContextMenuItems: getContextMenuItems,
+    rowSelection: 'single',
+    onSelectionChanged: onSelectionChanged,
 };
 
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', () => {
+    const syncWithBbcheckBox = document.getElementById("syncWithBbCheckbox");
+    syncWithBbcheckBox.onclick = (_) => {
+        shouldSyncWithBloomberg = syncWithBbcheckBox.checked;
+    };
     setupCommandActions();
     const gridDiv = document.querySelector('#securitiesGrid');
     new agGrid.Grid(gridDiv, gridOptions);
