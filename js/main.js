@@ -9,10 +9,19 @@ const rowData = [
     { security: "VOD LN Equity", price: 32000 },
 ];
 
+
+
 // let the grid know which columns and what data to use
 const gridOptions = {
     columnDefs: columnDefs,
-    rowData: rowData
+    rowData: rowData,
+    defaultColDef: {
+        flex: 1,
+        minWidth: 100,
+        resizable: true,
+    },
+    enableRangeSelection: true,
+    allowContextMenuWithControlKey: true
 };
 
 // setup the grid after the page has finished loading
