@@ -1,4 +1,5 @@
 import { importExcel } from './data-loader.js'
+import { setupCommandActions } from './commands.js'
 
 const columnDefs = [
     { field: "Ticker" },
@@ -13,34 +14,10 @@ const columnDefs = [
     { field: "Issue Date" },
 ];
 
-const supportedBbgCommands = ["YAS", "DES", "YASQ", "PSU", "PSU1", "QMGR", "HDS", "COV", "ATS"];
-const supportedChatClientCommands = ["Symphony", "MS Teams", "Slack"];
-const commandActions = {};
-function setupCommandActions() {
-    supportedBbgCommands.forEach(command => {
-        commandActions[command] = {
-            name: command,
-            action: function () {
-                window.alert('Alerting about ' + command);
-            }
-        }
-    });
-
-    commandActions["separator"] = "separator";
-
-    supportedChatClientCommands.forEach(command => {
-        commandActions[command] = {
-            name: command,
-            action: function () {
-                window.alert('Alerting about ' + command);
-            }
-        }
-    });
-}
 function getContextMenuItems(params) {
-    var result = [...Object.values(commandActions)];
-
-    return result;
+    // params not currently used, but they have the context of 
+    // the value in the cell which the right click event was triggered by
+    return [...Object.values(setupCommandActions())];
 }
 
 // let the grid know which columns and what data to use
