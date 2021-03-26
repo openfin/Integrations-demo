@@ -1,4 +1,4 @@
-const supportedBbgCommands = ["YAS", "DES", "YASQ", "PSU", "PSU1", "QMGR", "HDS", "COV", "ATS"];
+const supportedBbgCommands = ["BXT", "SXT", "YAS", "DES", "YASQ", "PSU", "PSU1", "QMGR", "HDS", "COV", "ATS"];
 const supportedChatClientCommands = ["Symphony", "MS Teams", "Slack"];
 
 export function setupCommandActions() {
