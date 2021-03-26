@@ -6,7 +6,6 @@ const fs = require("fs");
 const path = require("path");
 
 const appJson = "app.json";
-const localJson = "local.json";
 const serverParams = {
     root: path.resolve("./"),
     port: 5555,
@@ -18,11 +17,8 @@ const serverParams = {
 var app = connectLib();
 app.use(serveStatic("./"));
 
-//If local.json exists, use it instead of app.json
-const manifestFile = fs.existsSync(localJson) ? localJson : appJson;
-
 //To Launch the OpenFin Application we need a manifestUrl.
-const manifestUrl = `http://localhost:${serverParams.port}/${manifestFile}`;
+const manifestUrl = `http://localhost:${serverParams.port}/${appJson}`;
 
 console.time("Connecting to OpenFin");
 http.createServer(app).listen(5555);
