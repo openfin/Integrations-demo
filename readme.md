@@ -10,7 +10,7 @@ The Windows installer is [here](...).
 ## Run Locally
 * `$ git clone` 
 * `$ npm install` 
-* `$ npm start` to launch 
+* `$ npm run watch` to launch 
 
 ## Disclaimers
 * This is a starter example and intended to demonstrate to app providers a sample of how to approach an implementation. There are potentially other ways to approach it and alternatives could be considered. 
