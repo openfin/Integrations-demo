@@ -1,5 +1,6 @@
-import { importExcel } from './data-loader.js'
-import { setupCommandActions } from './commands.js'
+import { importExcel } from './data-loader.js';
+import { setupCommandActions } from './commands.js';
+import { setSecurity, initBloombegConnection } from './bloomberg-service.js';
 
 let shouldSyncWithBloomberg = false;
 
@@ -19,13 +20,13 @@ const columnDefs = [
 function getContextMenuItems(params) {
     // params not currently used, but they have the context of 
     // the value in the cell which the right click event was triggered by
-    return [...Object.values(setupCommandActions())];
+    return [...Object.values(setupCommandActions(params))];
 }
 
 function onSelectionChanged() {
     var selectedRows = gridOptions.api.getSelectedRows();
     if (selectedRows && selectedRows.length > 0 && shouldSyncWithBloomberg) {
-        alert("Row selected with CUSIP" + selectedRows[0].CUSIP);
+        setSecurity(selectedRows[0].CUSIP)
     }
 }
 
@@ -46,13 +47,16 @@ const gridOptions = {
 };
 
 // setup the grid after the page has finished loading
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+
+    await initBloombegConnection();
     const syncWithBbcheckBox = document.getElementById("syncWithBbCheckbox");
     syncWithBbcheckBox.onclick = (_) => {
         shouldSyncWithBloomberg = syncWithBbcheckBox.checked;
     };
-    setupCommandActions();
+
     const gridDiv = document.querySelector('#securitiesGrid');
     new agGrid.Grid(gridDiv, gridOptions);
+
     importExcel(gridOptions);
 });

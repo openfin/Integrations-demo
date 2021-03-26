@@ -9,6 +9,7 @@
   "author": "OpenFin",
   "license": "ISC",
   "dependencies": {
+    "@openfin/bloomberg": "^0.1.0",
     "connect": "^3.7.0",
     "hadouken-js-adapter": "^17.54.32",
     "http-server": "^0.12.3",
