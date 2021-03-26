@@ -2,7 +2,6 @@ const connectLib = require("connect");
 const http = require("http");
 const { launch, connect } = require("openfin-adapter");
 const serveStatic = require("serve-static");
-const fs = require("fs");
 const path = require("path");
 
 const appJson = "app.json";
