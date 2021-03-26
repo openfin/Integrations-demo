@@ -1,6 +1,7 @@
 import { importExcel } from './data-loader.js';
 import { setupCommandActions } from './commands.js';
 import { setSecurity, initBloombegConnection } from './bloomberg-service.js';
+import '../styles/main.css';
 
 let shouldSyncWithBloomberg = false;
 
@@ -48,8 +49,7 @@ const gridOptions = {
 
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', async () => {
-
-    await initBloombegConnection();
+    //await initBloombegConnection();
     const syncWithBbcheckBox = document.getElementById("syncWithBbCheckbox");
     syncWithBbcheckBox.onclick = (_) => {
         shouldSyncWithBloomberg = syncWithBbcheckBox.checked;

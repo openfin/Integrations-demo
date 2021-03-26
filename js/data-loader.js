@@ -75,7 +75,7 @@ function populateGrid(workbook, gridOptions) {
 
 export function importExcel(gridOptions) {
     makeRequest('GET',
-        'data/OpenFinBBGPOC_Data.xlsx',
+        'OpenFinBBGPOC_Data.xlsx',
         // success
         function (data) {
             var workbook = convertDataToWorkbook(data);

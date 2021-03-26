@@ -20,8 +20,7 @@ app.use(serveStatic("./"));
 const manifestUrl = `http://localhost:${serverParams.port}/${appJson}`;
 
 console.time("Connecting to OpenFin");
-http.createServer(app).listen(5555);
-//server.listen(serverParams.port);
+http.createServer(app).listen(serverParams.port);
 (async () => {
     try {
         console.log("Launching application from:", manifestUrl);

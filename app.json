@@ -16,31 +16,23 @@
             "contextMenu": false
         },
         "defaultWindowOptions": {
-            "contextMenu": false
+            "contextMenu": true,
+            "url": "/"
         }
     },
     "snapshot": {
         "windows": [
             {
-                "saveWindowState": false,
-                "backgroundThrottling": true,
-                "contextMenu": false,
                 "layout": {
-                    "settings": {
-                        "hasHeaders": false
-                    },
                     "content": [
                         {
-                            "type": "row",
-                            "id": "no-drop-target",
+                            "type": "stack",
                             "content": [
                                 {
                                     "type": "component",
                                     "componentName": "view",
-                                    "contextMenu": false,
                                     "componentState": {
-                                        "name": "SecuritiesView",
-                                        "url": "http://localhost:5555/index.html"
+                                        "name": "main-component"
                                     }
                                 }
                             ]

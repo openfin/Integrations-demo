@@ -1,5 +1,10 @@
 * {
-    color: white;
+    color: black;
+}
+
+.header {
+    -webkit-app-region: drag;
+    height: 50px;
 }
 
 label {
