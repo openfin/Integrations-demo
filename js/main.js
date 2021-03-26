@@ -1,5 +1,6 @@
 import { importExcel } from './data-loader.js';
 import { setupCommandActions } from './commands.js';
+import * as fdc3 from 'openfin-fdc3';
 import { setSecurity, initBloombegConnection } from './bloomberg-service.js';
 import '../styles/main.css';
 
@@ -47,9 +48,14 @@ const gridOptions = {
     onSelectionChanged: onSelectionChanged,
 };
 
+const selectGridRow = (cusip) => {
+    gridOptions.api.forEachNode(function (node) {
+        node.setSelected(node.data.CUSIP === cusip);
+    });
+}
+
 // setup the grid after the page has finished loading
 document.addEventListener('DOMContentLoaded', async () => {
-    //await initBloombegConnection();
     const syncWithBbcheckBox = document.getElementById("syncWithBbCheckbox");
     syncWithBbcheckBox.onclick = (_) => {
         shouldSyncWithBloomberg = syncWithBbcheckBox.checked;
@@ -57,6 +63,13 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const gridDiv = document.querySelector('#securitiesGrid');
     new agGrid.Grid(gridDiv, gridOptions);
+
+    await initBloombegConnection(selectGridRow);
+
+    fdc3.addContextListener((context) => {
+        const ticker = context.id.ticker;
+        selectGridRow(ticker);
+    });
 
     importExcel(gridOptions);
 });

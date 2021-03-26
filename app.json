@@ -20,6 +20,9 @@
             "url": "/"
         }
     },
+    "services": [{
+      "name": "fdc3"
+    }],
     "snapshot": {
         "windows": [
             {
