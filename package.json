@@ -19,6 +19,7 @@
     "http-server": "^0.12.3",
     "openfin-adapter": "^18.56.37",
     "openfin-fdc3": "^0.2.3",
+    "openfin-notifications": "^1.4.0",
     "serve-static": "^1.14.1",
     "style-loader": "^2.0.0"
   },

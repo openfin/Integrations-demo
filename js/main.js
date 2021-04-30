@@ -2,6 +2,7 @@ import { importExcel } from './data-loader.js';
 import { setupCommandActions } from './commands.js';
 import * as fdc3 from 'openfin-fdc3';
 import { setSecurity, initBloombegConnection } from './bloomberg-service.js';
+import { create } from 'openfin-notifications';
 import '../styles/main.css';
 
 let shouldSyncWithBloomberg = false;
@@ -68,7 +69,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     fdc3.addContextListener((context) => {
         const ticker = context.id.ticker;
+        const cusip = context.id.CUSIP;
         selectGridRow(ticker);
+        create({
+            title: "Context Changed",
+            body: `New context switched to ${ticker} (${cusip}).`,
+            category: "default",
+            catalogId: "0de8995a-9925-4938-8f64-adf33cfc998d",
+            indicator: {
+                type: "success",
+                text: "ticker"
+            }
+        });
     });
 
     importExcel(gridOptions);
